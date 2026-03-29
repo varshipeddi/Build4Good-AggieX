@@ -410,6 +410,11 @@ p {
   font-size: 0.9rem;
 }
 
+/* Extra air before the full-bleed plane section (eases the visual handoff) */
+.signals-band {
+  padding-bottom: clamp(28px, 5vw, 52px);
+}
+
 /* ─── Problem / Solution ─── */
 .problem-solution {
   display: grid;
@@ -1438,19 +1443,52 @@ p {
   width: 100%;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+  /* Navy → red-orange: matches logo gradient energy (brand palette) */
   background: linear-gradient(
     135deg,
     var(--color-navy) 0%,
-    #2a4460 30%,
-    var(--color-finch-orange) 70%,
+    #2a4460 28%,
+    var(--color-red) 52%,
+    var(--color-finch-orange) 78%,
     var(--color-orange) 100%
   );
+}
+
+/* Soft vertical blend: lighter top/bottom, full chroma in the middle (eases into adjacent sections) */
+.pp-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(241, 247, 255, 0.97) 0%,
+      rgba(241, 247, 255, 0.45) 10%,
+      rgba(241, 247, 255, 0.12) 22%,
+      transparent 38%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(247, 249, 252, 0.94) 0%,
+      rgba(247, 249, 252, 0.42) 11%,
+      rgba(247, 249, 252, 0.08) 24%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse 92% 72% at 50% 46%,
+      rgba(255, 255, 255, 0) 38%,
+      rgba(28, 50, 73, 0.2) 100%
+    );
 }
 
 .pp-canvas {
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1768,6 +1806,40 @@ p {
   background: rgba(30, 45, 67, 0.96);
   border-color: rgba(160, 178, 205, 0.26);
   color: #f0f5ff;
+}
+
+:root[data-theme='dark'] .pp-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-navy-deep) 0%,
+    var(--color-navy) 30%,
+    var(--color-red) 54%,
+    var(--color-finch-orange) 78%,
+    var(--color-orange) 100%
+  );
+}
+
+:root[data-theme='dark'] .pp-section::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 18, 28, 0.96) 0%,
+      rgba(12, 18, 28, 0.52) 10%,
+      rgba(12, 18, 28, 0.14) 24%,
+      transparent 40%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(17, 26, 40, 0.94) 0%,
+      rgba(17, 26, 40, 0.45) 11%,
+      rgba(17, 26, 40, 0.1) 26%,
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse 92% 72% at 50% 46%,
+      rgba(255, 255, 255, 0) 36%,
+      rgba(0, 0, 0, 0.38) 100%
+    );
 }
 
 :root[data-theme='dark'] h1,
