@@ -30,14 +30,4 @@ This project is a front-end React website built for the Finch hackathon challeng
 ```bash
 npm install
 
-```bash
 npm run dev
-
-src/
-  components/
-  pages/
-  App.jsx
-  main.jsx
-
-public/
-  assets/
