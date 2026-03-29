@@ -1,0 +1,42 @@
+---
+description: WCAG 2.1 AA accessibility standards for React components
+globs: "**/*.jsx"
+alwaysApply: false
+---
+
+# Accessibility
+
+## Elements
+- `<button>` for actions, `<a>`/`<Link>` for navigation — never `<div>` with onClick
+- Icon-only buttons need `aria-label`
+- Decorative images: `alt=""` and `aria-hidden="true"`
+- Meaningful images: descriptive `alt` text (describe information, not the image)
+- Semantic HTML (`<nav>`, `<main>`, `<section>`, `<header>`) before ARIA roles
+- Hierarchical headings h1-h6; include skip link for main content
+
+## Forms
+- Every input needs a visible `<label>` (placeholders are not labels)
+- Correct `type` attribute: email, tel, url, number
+- `autocomplete` attribute on relevant fields
+- Never block paste on inputs
+- Errors inline next to fields with `aria-describedby`; focus first error on submit
+- Labels clickable via `htmlFor` or wrapping
+
+## Focus
+- Visible focus ring: `focus-visible` with 2-3px outline, 3:1 contrast minimum
+- Never `outline: none` without `:focus-visible` replacement
+- Interactive states increase contrast: hover/active/focus more prominent than rest
+
+## Motion & Media
+- `prefers-reduced-motion`: provide crossfade or disable spatial motion
+- Images need explicit `width` and `height` to prevent CLS
+- Below-fold images: `loading="lazy"`
+
+## Touch
+- Minimum 44x44px touch targets (use padding or pseudo-elements if visual size is smaller)
+- `touch-action: manipulation` to prevent double-tap zoom delay
+
+## Content
+- Active voice for instructions
+- Specific button labels: "Save API Key" not "Continue"
+- Error messages include the fix, not just the problem

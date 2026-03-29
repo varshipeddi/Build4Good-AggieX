@@ -1,0 +1,46 @@
+---
+description: Core frontend design principles for distinctive, production-grade interfaces
+alwaysApply: true
+---
+
+# Frontend Design
+
+## Typography
+- Use Nunito as primary font (rounded sans-serif matching Finch logo energy), system-ui fallback
+- Modular scale with `clamp()` for fluid headings; fixed rem for body/UI text
+- `text-wrap: balance` on headings to prevent orphans
+- `font-variant-numeric: tabular-nums` on data columns
+- Minimum 16px body text; use rem/em, never px for body
+- Vary weight and size for hierarchy — combine 2-3 dimensions (size + weight + space)
+
+## Color
+- Tint all neutrals toward brand hue — never pure gray or pure black (#000)
+- 60-30-10 rule: 60% neutrals, 30% secondary, 10% accent (accent works because it's rare)
+- Gray text on colored backgrounds looks washed out — use a shade of the background color instead
+- Reduce chroma at extreme lightness/darkness to avoid garish tones
+- Test contrast: 4.5:1 body text, 3:1 large text/UI components
+
+## Layout & Space
+- 4pt spacing base: 4, 8, 12, 16, 24, 32, 48, 64, 96px
+- Use `gap` over margins for sibling spacing
+- Vary spacing for rhythm — tight groupings + generous separations
+- Not everything needs a card container; never nest cards inside cards
+- Left-aligned text with asymmetric layouts often feels more designed than centering everything
+
+## Motion
+- Duration: 100-150ms feedback, 200-300ms state changes, 300-500ms layout, 500-800ms entrances
+- Exit animations at ~75% of entrance duration
+- Default easing: `cubic-bezier(0.25, 1, 0.5, 1)` (ease-out-quart)
+- Animate only `transform` and `opacity` — everything else triggers layout recalc
+- Never `transition: all` — list properties explicitly
+- Never use bounce/elastic easing — feels dated; real objects decelerate smoothly
+- Stagger cap: total stagger time under 500ms
+- `prefers-reduced-motion` is mandatory — provide crossfade alternative or disable
+
+## Anti-Patterns
+- No Inter, Roboto, Arial, Open Sans as primary font
+- No pure black (#000) or pure white (#fff) — always tint
+- No identical card grids repeated endlessly
+- No glassmorphism as decoration without purpose
+- No gradient text for "impact" on metrics/headings
+- No modals unless truly no better alternative

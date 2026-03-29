@@ -1,0 +1,36 @@
+---
+description: React component and performance best practices
+globs: "**/*.jsx"
+alwaysApply: false
+---
+
+# React Patterns
+
+## Components
+- Functional components with hooks only
+- Never define components inside other components (causes remount every render)
+- Extract expensive computations into memoized child components
+- Use composition (children) over boolean prop proliferation
+- Create explicit variant components instead of boolean mode props
+
+## State
+- Derive state during render, not in effects — if computable from props/state, compute inline
+- Use functional setState for stable callbacks: `setCount(c => c + 1)`
+- Pass initializer function to useState for expensive defaults: `useState(() => compute())`
+- Use refs for transient frequent values (mouse position, scroll offset)
+- Don't subscribe to state only used in callbacks — use refs instead
+
+## Effects
+- Move interaction logic to event handlers, not effects
+- Use primitive dependencies in effect arrays (not objects/arrays)
+- Split hooks with independent dependency arrays
+
+## Performance
+- `useMemo`/`useCallback` for expensive work, not simple primitives or expressions
+- Use `startTransition` for non-urgent updates (tab switches, filters)
+- Dynamic import heavy components: `lazy(() => import('./Heavy'))`
+- Import directly from modules, not barrel files
+
+## React 19
+- No `forwardRef` — pass ref as a regular prop
+- `use()` instead of `useContext()` for reading context

@@ -1,35 +1,39 @@
 :root {
-  --color-navy: #24364c;
-  --color-navy-deep: #1a2b3e;
-  --color-gray: #d4d4d4;
-  --color-red: #d43c33;
-  --color-orange: #e09643;
+  --color-navy: #1c3249;
+  --color-navy-deep: #142536;
+  --color-red: #ed1c24;
+  --color-orange: #f7941d;
+  --color-finch-orange: #e8401c;
+  --color-green: #58cc02;
+  --color-green-dark: #2d8214;
 
-  --text-primary: #1e3043;
-  --text-muted: #44586f;
-  --text-soft: #617489;
+  --text-primary: #1a2d42;
+  --text-muted: #3d5468;
+  --text-soft: #5a7389;
 
-  --surface-base: #eef3f9;
-  --surface-soft: #f6f9fe;
-  --surface-panel: rgba(255, 255, 255, 0.76);
-  --surface-elevated: rgba(255, 255, 255, 0.9);
-  --surface-tint: #fff7ef;
-  --surface-accent: #f2f7ff;
+  --surface-base: #f0f4f9;
+  --surface-soft: #f7f9fc;
+  --surface-panel: rgba(255, 255, 255, 0.78);
+  --surface-elevated: rgba(255, 255, 255, 0.92);
+  --surface-tint: #fff6ed;
+  --surface-accent: #f0f5ff;
 
-  --border-soft: rgba(36, 54, 76, 0.1);
-  --border-medium: rgba(36, 54, 76, 0.16);
-  --border-strong: rgba(36, 54, 76, 0.22);
+  --border-soft: rgba(28, 50, 73, 0.1);
+  --border-medium: rgba(28, 50, 73, 0.17);
+  --border-strong: rgba(28, 50, 73, 0.24);
 
-  --shadow-xs: 0 4px 12px rgba(32, 49, 69, 0.06);
-  --shadow-soft: 0 10px 26px rgba(32, 49, 69, 0.08);
-  --shadow-medium: 0 16px 36px rgba(32, 49, 69, 0.11);
-  --shadow-hover: 0 22px 44px rgba(32, 49, 69, 0.14);
+  --shadow-xs: 0 4px 12px rgba(28, 50, 73, 0.06);
+  --shadow-soft: 0 10px 26px rgba(28, 50, 73, 0.08);
+  --shadow-medium: 0 16px 36px rgba(28, 50, 73, 0.12);
+  --shadow-hover: 0 22px 44px rgba(28, 50, 73, 0.15);
 
-  --radius-lg: 20px;
+  --radius-lg: 22px;
   --radius-md: 14px;
   --radius-sm: 10px;
 
-  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
   --transition-fast: 160ms var(--ease);
   --transition-base: 220ms var(--ease);
   --transition-slow: 360ms var(--ease);
@@ -38,49 +42,49 @@
 
   --bg-layer-1: radial-gradient(
     1220px 700px at 10% 2%,
-    rgba(224, 150, 67, 0.14),
+    rgba(247, 148, 29, 0.12),
     transparent 68%
   );
   --bg-layer-2: radial-gradient(
     980px 620px at 92% 10%,
-    rgba(212, 60, 51, 0.1),
+    rgba(237, 28, 36, 0.08),
     transparent 70%
   );
-  --bg-layer-3: linear-gradient(180deg, #f8fcff 0%, #f1f7ff 48%, #eaf1fa 100%);
+  --bg-layer-3: linear-gradient(180deg, #f8fcff 0%, #f1f7ff 48%, #ecf2fa 100%);
 }
 
 :root[data-theme='dark'] {
-  --text-primary: #e4ebf8;
-  --text-muted: #bac6dd;
-  --text-soft: #95a4bf;
+  --text-primary: #e2eaf6;
+  --text-muted: #b5c4da;
+  --text-soft: #8fa2bc;
 
-  --surface-base: #0d1420;
-  --surface-soft: #121b29;
-  --surface-panel: rgba(22, 32, 47, 0.82);
-  --surface-elevated: rgba(19, 29, 45, 0.92);
-  --surface-tint: #241d1a;
-  --surface-accent: #141f31;
+  --surface-base: #0c1320;
+  --surface-soft: #111a28;
+  --surface-panel: rgba(20, 30, 46, 0.84);
+  --surface-elevated: rgba(18, 28, 44, 0.94);
+  --surface-tint: #261c18;
+  --surface-accent: #131e30;
 
-  --border-soft: rgba(170, 186, 212, 0.2);
-  --border-medium: rgba(170, 186, 212, 0.3);
-  --border-strong: rgba(170, 186, 212, 0.42);
+  --border-soft: rgba(165, 185, 215, 0.18);
+  --border-medium: rgba(165, 185, 215, 0.28);
+  --border-strong: rgba(165, 185, 215, 0.4);
 
-  --shadow-xs: 0 8px 20px rgba(0, 0, 0, 0.28);
-  --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.34);
-  --shadow-medium: 0 20px 42px rgba(0, 0, 0, 0.42);
-  --shadow-hover: 0 26px 48px rgba(0, 0, 0, 0.5);
+  --shadow-xs: 0 8px 20px rgba(0, 0, 0, 0.3);
+  --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.36);
+  --shadow-medium: 0 20px 42px rgba(0, 0, 0, 0.44);
+  --shadow-hover: 0 26px 48px rgba(0, 0, 0, 0.52);
 
   --bg-layer-1: radial-gradient(
     1180px 700px at 8% 0%,
-    rgba(224, 150, 67, 0.11),
+    rgba(247, 148, 29, 0.1),
     transparent 72%
   );
   --bg-layer-2: radial-gradient(
     1040px 700px at 96% 8%,
-    rgba(212, 60, 51, 0.12),
+    rgba(237, 28, 36, 0.1),
     transparent 72%
   );
-  --bg-layer-3: linear-gradient(180deg, #0e1623 0%, #111b2a 48%, #0c1522 100%);
+  --bg-layer-3: linear-gradient(180deg, #0d1522 0%, #101a28 48%, #0b1420 100%);
 }
 
 html {
@@ -94,8 +98,7 @@ body,
 }
 
 body {
-  font-family: 'Inter', 'Nunito Sans', 'Avenir Next', 'Segoe UI', system-ui,
-    sans-serif;
+  font-family: 'Nunito', 'Nunito Sans', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   letter-spacing: 0.005em;
   background: var(--bg-layer-1), var(--bg-layer-2), var(--bg-layer-3);

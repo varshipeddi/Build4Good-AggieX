@@ -1,0 +1,37 @@
+---
+description: Finch brand context, colors, typography, and tone for all design decisions
+alwaysApply: true
+---
+
+# Finch Brand
+
+- **Tagline**: "Fewer Applications. More Interviews."
+- **Hero headline**: "Turn Applications Into Interviews."
+- **Tone**: Playful, Innovative, Approachable (Duolingo-inspired energy)
+- **Audience**: 19-23 year old CS/Engineering undergrads applying for internships
+
+## Colors
+- Navy: #1c3249 (primary dark)
+- Red: #ed1c24 (primary accent)
+- Orange: #f7941d (secondary accent)
+- Finch Orange: #E8401C (warm accent)
+- Green: #58CC02 (success/positive, Duolingo-inspired)
+- White: #ffffff
+- Logo uses a gradient from navy through red to orange
+
+## Typography
+- Primary: Nunito (Google Fonts, rounded sans-serif matching logo energy)
+- Fallback: system-ui, sans-serif
+- Never: Times New Roman, Arial, Inter as primary
+
+## Logo
+- Bird-shaped "f" lettermark with parrot beak detail
+- Available in: gradient (orange), dark (red-orange), light background variant
+- The "f" icon can be used standalone as a favicon/badge
+
+## Product Context
+- Chrome extension for internship applications
+- AI-powered resume tailoring + autofill on Greenhouse, Lever, Workday
+- Reduces 20-30 min application to under 60 seconds
+- Not an auto-apply tool — intentional, response-optimization platform
+- Reference: applyfinch.com for existing product UI patterns

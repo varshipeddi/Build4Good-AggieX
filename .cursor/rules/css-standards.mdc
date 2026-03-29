@@ -1,0 +1,45 @@
+---
+description: CSS animation, layout, and performance standards
+globs: "**/*.css"
+alwaysApply: false
+---
+
+# CSS Standards
+
+## Animation
+- Animate only `transform` and `opacity` — compositor-friendly
+- Never `transition: all` — list each property explicitly
+- Height animations: `grid-template-rows: 0fr` to `1fr`, not `height`
+- Set correct `transform-origin`
+- Honor `prefers-reduced-motion`: crossfade alternative or disable
+
+## Typography
+- `font-display: swap` on all @font-face
+- `clamp(min, preferred, max)` for fluid headings
+- `text-wrap: balance` or `text-pretty` on headings
+- `font-variant-numeric: tabular-nums` for number columns
+- Ellipsis: `…` not `...`; curly quotes not straight quotes
+
+## Layout
+- Flex/grid over JS measurement for layout
+- Flex children need `min-width: 0` for text truncation
+- `gap` over margin for sibling spacing
+- `overflow-x: hidden` on containers to prevent unwanted scrollbars
+- Semantic variable names: `--space-sm`, `--text-body` not `--spacing-8`, `--font-16`
+
+## Performance
+- `content-visibility: auto` for long off-screen sections
+- `<link rel="preconnect">` for CDN/font domains
+- Images: explicit width/height to prevent CLS
+
+## Dark Mode
+- `color-scheme: dark` on html for dark themes (fixes scrollbar, native inputs)
+- Reduce font weight slightly in dark mode (perceived weight is lighter)
+- Depth via lighter surfaces, not shadows
+- Desaturate accents slightly in dark mode
+- Never pure black background — use dark gray (12-18% lightness)
+
+## Interaction
+- `touch-action: manipulation` on interactive elements
+- `overscroll-behavior: contain` in modals/drawers
+- `-webkit-tap-highlight-color` set intentionally

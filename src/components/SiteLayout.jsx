@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import { loadContent } from '../lib/contentStore'
 
 const THEME_KEY = 'finch-theme'
 
@@ -17,6 +18,7 @@ function getInitialTheme() {
 function SiteLayout() {
   const { pathname } = useLocation()
   const [theme, setTheme] = useState(getInitialTheme)
+  const [content] = useState(loadContent)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -26,39 +28,6 @@ function SiteLayout() {
     document.documentElement.setAttribute('data-theme', theme)
     window.localStorage.setItem(THEME_KEY, theme)
   }, [theme])
-
-  useEffect(() => {
-    const sections = Array.from(document.querySelectorAll('[data-reveal]'))
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches
-
-    sections.forEach((section, index) => {
-      section.style.setProperty(
-        '--reveal-delay',
-        `${Math.min(index * 60, 240)}ms`,
-      )
-    })
-
-    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-      sections.forEach((s) => s.classList.add('is-visible'))
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return
-          entry.target.classList.add('is-visible')
-          observer.unobserve(entry.target)
-        })
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
-    )
-
-    sections.forEach((s) => observer.observe(s))
-    return () => observer.disconnect()
-  }, [pathname])
 
   const isDark = theme === 'dark'
 
@@ -74,6 +43,8 @@ function SiteLayout() {
             src="/assets/branding/finch-logo.png"
             alt="Finch"
             className="brand-logo"
+            width="120"
+            height="34"
           />
         </NavLink>
         <div className="nav-controls">
@@ -92,7 +63,7 @@ function SiteLayout() {
             aria-pressed={isDark}
           >
             <span className="theme-toggle-icon" aria-hidden="true">
-              {isDark ? '☀' : '☾'}
+              {isDark ? '\u2600' : '\u263E'}
             </span>
             <span>{isDark ? 'Light' : 'Dark'}</span>
           </button>
@@ -111,11 +82,10 @@ function SiteLayout() {
                 src="/assets/branding/finch-logo.png"
                 alt="Finch"
                 className="footer-logo"
+                width="120"
+                height="24"
               />
-              <p className="footer-tagline">
-                Intentional internship applications for students pursuing better-fit
-                roles and better outcomes.
-              </p>
+              <p className="footer-tagline">{content.footerTagline}</p>
             </section>
 
             <section className="footer-col" aria-label="Footer navigation">
@@ -139,20 +109,21 @@ function SiteLayout() {
             <section className="footer-col" aria-label="Quick actions">
               <p className="footer-title">Quick Actions</p>
               <div className="footer-actions">
-                <button type="button" className="footer-action">
-                  Follow on Social
-                </button>
-                <button type="button" className="footer-action">
-                  Share Finch
-                </button>
-                <button type="button" className="footer-action">
+                <a href="https://applyfinch.com" className="footer-action">
+                  Try Finch Free
+                </a>
+                <a href="https://applyfinch.com" className="footer-action">
                   Download Extension
-                </button>
+                </a>
               </div>
             </section>
           </div>
 
-          <p className="footer-bottom">Finch — Intentional internship platform.</p>
+          <p className="footer-bottom">
+            &copy; {new Date().getFullYear()} Finch &mdash; Intentional
+            internship platform. Sponsored by AggieX, Aggies Create, and Meloy
+            Entrepreneurship.
+          </p>
         </div>
       </footer>
     </div>
