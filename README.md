@@ -1,16 +1,43 @@
-# React + Vite
+# AggieX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A design-first hackathon website for Finch, an intentional internship platform that helps students apply to internships more strategically.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a front-end React website built for the Finch hackathon challenge. The site presents Finch as a student-focused platform that helps users target better-fit roles, tailor application materials, and improve interview outcomes.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Home, About, and Product pages
+- Light mode and dark mode
+- FAQ section
+- Email capture section
+- Contact form
+- Responsive layout
+- Interactive product flow section
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- React Router
+- CSS
+
+## Getting Started
+
+### Install dependencies
+
+```bash
+npm install
+
+```bash
+npm run dev
+
+src/
+  components/
+  pages/
+  App.jsx
+  main.jsx
+
+public/
+  assets/
